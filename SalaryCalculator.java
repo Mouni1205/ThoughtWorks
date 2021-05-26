@@ -10,9 +10,9 @@ public class SalaryCalculator{
     }
     public static void weekEndsShare(int hoursWorked[]){
         if(hoursWorked[0]>0)
-            totalAmount+=hoursWorked[0]*125; //bonus for sunday
+            totalAmount+=hoursWorked[0]*150; //bonus for sunday
         if(hoursWorked[6]>0)
-            totalAmount+=hoursWorked[6]*150;    //bonus for saturday
+            totalAmount+=hoursWorked[6]*125;    //bonus for saturday
     }
     public static void totalSalary(int totalHoursWorked){
         if(totalHoursWorked>40)
