@@ -1,22 +1,24 @@
 import java.util.*;
 public class SalaryCalculator{
     static int totalAmount;
+    static int payPerHour=100,maxHours=8,extraPayforHour=15,sundayBonus=50,
+    saturdayBonus=25,maxWeekHours=40,weeklyBonus=25;
     public static void weekDaysShare(int hoursWorked[]){
         for(int i=1;i<6;i++){
-            totalAmount+=hoursWorked[i]*100;
-            if(hoursWorked[i]>8)
-                totalAmount+=(hoursWorked[i]-8)*15;
+            totalAmount+=hoursWorked[i]*payPerHour;
+            if(hoursWorked[i]>maxHours)
+                totalAmount+=(hoursWorked[i]-maxHours)*extraPayforHour;
         }
     }
     public static void weekEndsShare(int hoursWorked[]){
         if(hoursWorked[0]>0)
-            totalAmount+=hoursWorked[0]*150; //bonus for sunday
+            totalAmount+=(hoursWorked[0]*payPerHour*sundayBonus)/100; //bonus for sunday
         if(hoursWorked[6]>0)
-            totalAmount+=hoursWorked[6]*125;    //bonus for saturday
+            totalAmount+=(hoursWorked[6]*payPerHour*saturdayBonus)/100;    //bonus for saturday
     }
     public static void totalSalary(int totalHoursWorked){
-        if(totalHoursWorked>40)
-            totalAmount+=(totalHoursWorked-40)*25;
+        if(totalHoursWorked>maxWeekHours)
+            totalAmount+=(totalHoursWorked-maxWeekHours)*weeklyBonus;
         System.out.println(totalAmount);
     }
     public static void main(String args[]){
