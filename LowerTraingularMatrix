@@ -1,0 +1,27 @@
+import java.util.*;
+public class LowerTriangularMatrix {
+    public static boolean isLowerTriangularMatrix(int array[][],int size){
+        for(int i=0;i<size;i++){
+            for(int j=0;j<size;j++){
+                if(i<j && array[i][j]!=0)
+                    return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        Scanner scanner = new Scanner(System.in);
+        int rows=scanner.nextInt();
+        int columns=scanner.nextInt();
+        if(rows!=columns || rows==0)
+            return;
+        else {
+            int array[][]=new int[rows][columns];
+            for(int i=0;i<rows;i++){
+                for(int j=0;j<columns;j++)
+                    array[i][j]=scanner.nextInt();
+            }
+            System.out.println(isLowerTriangularMatrix(array,rows)?"yes":"no");
+        }
+    }
+}
